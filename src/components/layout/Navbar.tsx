@@ -1,18 +1,18 @@
-// components/layout/Navbar.tsx
-'use client';
-import Link from 'next/link';
-import { useState } from 'react';
-import { FaBars, FaTimes, FaRocket } from 'react-icons/fa';
-import Button from '../ui/Button';
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { FaBars, FaTimes, FaRocket } from "react-icons/fa";
+import Button from "@/components/ui/Button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'About', href: '/about' },
-    { name: 'Skill Building', href: '#' },
-    { name: 'Find Opportunities', href: '#' },
-    { name: 'Interview Prep', href: '/interview-prep' },
+    { name: "About", href: "/about" },
+    { name: "Skill Building", href: "#" },
+    { name: "Find Opportunities", href: "#" },
+    { name: "Interview Prep", href: "/interview-prep" },
   ];
 
   return (
@@ -25,14 +25,20 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-gray-300 hover:text-white transition">
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-gray-300 hover:text-white transition"
+            >
               {link.name}
             </Link>
           ))}
         </div>
 
         <div className="hidden md:block">
-          <Button href="#" variant="cta">Get Started</Button>
+          <Button href="#" variant="cta">
+            Get Started
+          </Button>
         </div>
 
         <div className="md:hidden">
@@ -46,11 +52,18 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-brand-dark-blue/95 flex flex-col items-center space-y-4 py-8">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-xl text-gray-300 hover:text-white transition" onClick={() => setIsOpen(false)}>
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-xl text-gray-300 hover:text-white transition"
+              onClick={() => setIsOpen(false)}
+            >
               {link.name}
             </Link>
           ))}
-          <Button href="#" variant="cta">Get Started</Button>
+          <Button href="#" variant="cta">
+            Get Started
+          </Button>
         </div>
       )}
     </header>
