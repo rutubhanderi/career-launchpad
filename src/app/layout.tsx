@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -9,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Career Launchpad | Unlocking Your Potential",
-  description: "Empowering underprivileged students with the skills and opportunities to launch successful careers.",
+  description:
+    "Empowering underprivileged students with the skills and opportunities to launch successful careers.",
 };
 
 export default function RootLayout({
