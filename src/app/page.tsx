@@ -14,16 +14,15 @@ export default function HomePage() {
       <section className="bg-hero-gradient pt-20 pb-16">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
-            Your Roadmap to a Fulfilling Career
+            Launch Your Career with Peer Guidance
           </h1>
           <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
-            We provide in-demand skills, direct access to top job opportunities,
-            and expert guidance to help students from all backgrounds launch
-            successful careers. Your journey starts here.
+            Connect with experienced students who've successfully navigated internships and job searches. 
+            Get authentic advice, real insights, and practical strategies from those who've been in your shoes.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <Button href="#" variant="cta" showArrow>
-              Start Your Journey
+            <Button href="/find-opportunities" variant="cta" showArrow>
+              Find Your Path
             </Button>
             <Button href="/about" variant="secondary">
               Learn More
@@ -32,7 +31,7 @@ export default function HomePage() {
           <div className="mt-16 bg-white/10 backdrop-blur-md rounded-xl p-8 max-w-4xl mx-auto">
             <Image
               src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop"
-              alt="Students collaborating"
+              alt="Students mentoring and guiding each other"
               width={800}
               height={400}
               className="rounded-lg shadow-2xl"
@@ -48,37 +47,36 @@ export default function HomePage() {
             What is Career Launchpad?
           </h2>
           <p className="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
-            Career Launchpad is a comprehensive career development platform
-            designed to guide you from learning to landing your dream job. We
-            believe talent is everywhere, but opportunity is not. We're here to
-            change that.
+            Career Launchpad is a peer-powered platform where experienced students guide beginners through their career journeys. 
+            We connect you with mentors who've recently secured internships and jobs, providing authentic insights that traditional 
+            career advice can't match. Our community believes the best guidance comes from those who've faced the same challenges.
           </p>
           <div className="mt-12 grid md:grid-cols-3 gap-8 text-left">
             {/* Card 1 */}
             <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
               <FaProjectDiagram className="text-brand-teal text-4xl mb-4" />
-              <h3 className="font-bold text-xl mb-2">Structured Learning Path</h3>
+              <h3 className="font-bold text-xl mb-2">Peer Learning Paths</h3>
               <p className="text-gray-400">
-                An organized curriculum covering everything from foundational
-                skills to advanced interview techniques.
+                Structured guidance from students who've successfully navigated internships and job searches, 
+                sharing their real experiences and strategies.
               </p>
             </div>
             {/* Card 2 */}
             <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
               <FaSearch className="text-brand-teal text-4xl mb-4" />
-              <h3 className="font-bold text-xl mb-2">Real Opportunity Listings</h3>
+              <h3 className="font-bold text-xl mb-2">Curated Opportunities</h3>
               <p className="text-gray-400">
-                Curated jobs from partner companies, filtered to match your
-                profile and career aspirations.
+                Access to internships, jobs, and programs recommended by peers who've participated, 
+                with insights on application strategies and success tips.
               </p>
             </div>
             {/* Card 3 */}
             <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
               <FaComments className="text-brand-teal text-4xl mb-4" />
-              <h3 className="font-bold text-xl mb-2">Expert Interview Strategies</h3>
+              <h3 className="font-bold text-xl mb-2">Real Interview Experiences</h3>
               <p className="text-gray-400">
-                Actionable strategies and behavioral frameworks crafted by
-                seasoned industry professionals.
+                Authentic interview preparation through shared experiences, mock interviews, 
+                and tips from students who've recently gone through the process.
               </p>
             </div>
           </div>
@@ -92,44 +90,43 @@ export default function HomePage() {
             Everything You Need to Succeed
           </h2>
           <p className="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
-            Three powerful pillars designed to take your career to the next
-            level.
+            Three powerful pillars of peer-powered career guidance designed to accelerate your journey.
           </p>
           <div className="mt-12 grid md:grid-cols-3 gap-8">
             <div className="bg-gray-800 p-8 rounded-lg text-left transform hover:-translate-y-2 transition-transform">
               <FaProjectDiagram size={40} className="text-brand-light-blue mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Structured Learning</h3>
+              <h3 className="text-2xl font-bold mb-2">Peer Mentorship</h3>
               <p className="text-gray-400 mb-4">
-                A step-by-step curriculum designed by industry veterans to make
-                you job-ready.
+                Connect with students who've successfully navigated internships and jobs. 
+                Get personalized guidance based on real experiences.
               </p>
-              <a href="#" className="font-semibold text-brand-teal hover:underline">
-                Explore &rarr;
+              <a href="/about" className="font-semibold text-brand-teal hover:underline">
+                Learn More &rarr;
               </a>
             </div>
             <div className="bg-brand-light-blue p-8 rounded-lg text-left transform hover:-translate-y-2 transition-transform">
               <FaSearch size={40} className="text-white mb-4" />
-              <h3 className="text-2xl font-bold mb-2 text-white">Real Opportunities</h3>
+              <h3 className="text-2xl font-bold mb-2 text-white">Opportunity Discovery</h3>
               <p className="text-blue-100 mb-4">
-                Access exclusive job listings matched to your skill set. Skip
-                the noise, find your fit.
+                Explore internships, jobs, and programs through the lens of peer experiences. 
+                Find opportunities that match your goals with insider insights.
               </p>
-              <a href="#" className="font-semibold text-white hover:underline">
+              <a href="/find-opportunities" className="font-semibold text-white hover:underline">
                 Explore &rarr;
               </a>
             </div>
             <div className="bg-brand-green/20 p-8 rounded-lg text-left transform hover:-translate-y-2 transition-transform">
               <FaAward size={40} className="text-brand-green mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Expert Interview Coaching</h3>
+              <h3 className="text-2xl font-bold mb-2">Interview Preparation</h3>
               <p className="text-gray-400 mb-4">
-                Get insider tips, mock interviews, and personalized feedback to
-                ace any interview.
+                Practice with mock interviews and get feedback from peers who've recently 
+                aced their interviews. Learn from their successes and mistakes.
               </p>
               <a
-                href="#"
+                href="/interview-prep"
                 className="font-semibold text-brand-green hover:underline"
               >
-                Explore &rarr;
+                Start Prep &rarr;
               </a>
             </div>
           </div>

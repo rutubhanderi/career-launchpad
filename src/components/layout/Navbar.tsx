@@ -9,11 +9,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "About", href: "/about" },
-    { name: "Skill Building", href: "#" },
-    { name: "Find Opportunities", href: "#" },
-    { name: "Interview Prep", href: "/interview-prep" },
-  ];
+  { name: "About", href: "/about" },
+  { name: "Skill Building", href: "#" },
+  { name: "Find Opportunities", href: "/find-opportunities"},
+  { name: "Interview Prep", href: "/interview-prep" },
+];
 
   return (
     <header className="sticky top-0 z-50 bg-brand-dark-blue/80 backdrop-blur-sm">
