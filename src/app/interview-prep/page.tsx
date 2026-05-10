@@ -58,17 +58,17 @@ export default function InterviewPrepPage() {
       {/* Prep Hero */}
       <section className="bg-brand-blue py-20 text-center">
         <div className="container mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold">Ace Your Interview</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold">Ace Your Interview with Peer Insights</h1>
           <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
-            From technical deep dives to behavioral rounds — our expert-led
-            resources and mock interviews prepare you for every format.
+            Learn from students who've recently nailed their interviews. Get authentic tips, 
+            real experiences, and practice sessions guided by those who've been through it all.
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button href="#" variant="cta">
-              Practice Now
+              Start Practice
             </Button>
             <Button href="#" variant="secondary">
-              View Resources
+              View Experiences
             </Button>
           </div>
         </div>
@@ -79,14 +79,14 @@ export default function InterviewPrepPage() {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-2">Choose Your Prep Track</h2>
           <p className="text-gray-400 mb-12">
-            Targeted preparation for every type of interview format.
+            Learn from peer experiences and practice with fellow students who've recently succeeded.
           </p>
           <div className="grid md:grid-cols-4 gap-8 text-left">
             <div className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-brand-teal transition">
               <FaLaptopCode size={30} className="mb-4 text-brand-teal" />
               <h3 className="text-xl font-bold mb-2">Technical Interviews</h3>
               <p className="text-gray-400 mb-4">
-                Master data structures, algorithms, and system design concepts.
+                Master coding challenges with insights from peers who've cracked technical rounds at top companies.
               </p>
               <a href="#" className="font-semibold text-brand-teal">
                 Start Prep &rarr;
@@ -96,7 +96,7 @@ export default function InterviewPrepPage() {
               <FaRegComments size={30} className="mb-4 text-brand-teal" />
               <h3 className="text-xl font-bold mb-2">Behavioral Interviews</h3>
               <p className="text-gray-400 mb-4">
-                Learn the STAR method and craft compelling stories.
+                Learn storytelling techniques from students who've shared their successful STAR method experiences.
               </p>
               <a href="#" className="font-semibold text-brand-teal">
                 Start Prep &rarr;
@@ -104,19 +104,19 @@ export default function InterviewPrepPage() {
             </div>
             <div className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-brand-teal transition">
               <FaRegFileAlt size={30} className="mb-4 text-brand-teal" />
-              <h3 className="text-xl font-bold mb-2">Case Studies</h3>
+              <h3 className="text-xl font-bold mb-2">Peer Mock Interviews</h3>
               <p className="text-gray-400 mb-4">
-                Break down and solve case analysis for consulting and product roles.
+                Practice with students who've recently interviewed at your target companies and received offers.
               </p>
               <a href="#" className="font-semibold text-brand-teal">
-                Start Prep &rarr;
+                Find Partner &rarr;
               </a>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-brand-teal transition">
               <FaUsersCog size={30} className="mb-4 text-brand-teal" />
-              <h3 className="text-xl font-bold mb-2">HR Rounds</h3>
+              <h3 className="text-xl font-bold mb-2">HR & Negotiation</h3>
               <p className="text-gray-400 mb-4">
-                Navigate salary negotiations, culture-fit questions, and offer details.
+                Get salary negotiation tips and culture-fit advice from peers who've successfully navigated HR rounds.
               </p>
               <a href="#" className="font-semibold text-brand-teal">
                 Start Prep &rarr;
