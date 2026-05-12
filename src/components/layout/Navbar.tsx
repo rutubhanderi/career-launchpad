@@ -18,8 +18,8 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-brand-dark-blue/80 backdrop-blur-sm">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center space-x-2 text-2xl font-bold">
-          <FaRocket className="text-brand-teal" />
+        <Link href="/" className="flex items-center space-x-2 text-xl font-bold">
+          <FaRocket size={20} className="text-brand-teal" />
           <span>Career Launchpad</span>
         </Link>
 
