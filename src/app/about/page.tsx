@@ -1,7 +1,13 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import { FaUsers, FaRocket, FaEye, FaHandshake } from "react-icons/fa";
+import { isAuthenticated } from "@/lib/auth";
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  if (!(await isAuthenticated())) {
+    redirect("/login?next=/about");
+  }
+
   return (
     <>
       {/* About Hero */}

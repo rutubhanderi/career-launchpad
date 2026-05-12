@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import { FaSearch, FaPaperPlane, FaTools, FaGithub } from "react-icons/fa";
+import { isAuthenticated } from "@/lib/auth";
 
 const opportunitySections = [
   {
@@ -132,7 +134,11 @@ const opportunitySections = [
   },
 ];
 
-export default function FindOpportunitiesPage() {
+export default async function FindOpportunitiesPage() {
+  if (!(await isAuthenticated())) {
+    redirect("/login?next=/find-opportunities");
+  }
+
   return (
     <main className="min-h-screen bg-brand-blue text-white">
       {/* Hero Section */}
