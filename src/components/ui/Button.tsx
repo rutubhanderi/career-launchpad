@@ -8,6 +8,7 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "cta";
   className?: string;
   showArrow?: boolean;
+  scroll?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   className = "",
   showArrow = false,
+  scroll = true,
 }) => {
   const baseStyles =
     "inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-dark-blue";
@@ -28,7 +30,11 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <Link href={href} className={`${baseStyles} ${variantStyles[variant]} ${className}`}>
+    <Link
+      href={href}
+      scroll={scroll}
+      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+    >
       {children}
       {showArrow && <FaArrowRight className="ml-2" />}
     </Link>
