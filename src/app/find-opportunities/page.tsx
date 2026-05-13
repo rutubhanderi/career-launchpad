@@ -134,7 +134,7 @@ const opportunitySections = [
 
 export default function FindOpportunitiesPage() {
   return (
-    <main className="min-h-screen bg-brand-blue text-white">
+    <main className="min-h-screen bg-brand-blue text-white scroll-smooth">
       {/* Hero Section */}
       <section className="py-20 text-center">
         <div className="container mx-auto px-6">
@@ -166,42 +166,42 @@ export default function FindOpportunitiesPage() {
             </div>
 
             <div className="mt-12 grid gap-8 lg:grid-cols-4">
-              <div className="bg-gray-800/70 p-6 rounded-3xl border border-gray-700">
+                <a href="#core-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-4 text-brand-green">
                   <FaSearch size={28} />
                   <h3 className="text-2xl font-semibold">1. Search</h3>
                 </div>
                 <p className="text-gray-300 leading-7">
-                  Search smartly by targeting high-quality opportunities and trusted platforms. Use peer-verified sources to find roles that match your goals.
+                  Search strategically using trusted platforms that match your goals and skill level. Start with professional networks like LinkedIn and Wellfound for internships and startup opportunities, then explore curated student-focused portals such as Internshala, Cuvette, Instahyre, and Naukri Campus. Focus on quality over quantity by shortlisting roles that align with your interests, projects, and career path.
                 </p>
-              </div>
-              <div className="bg-gray-800/70 p-6 rounded-3xl border border-gray-700">
+              </a>
+              <a href="#core-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-4 text-brand-green">
                   <FaPaperPlane size={28} />
                   <h3 className="text-2xl font-semibold">2. Apply</h3>
                 </div>
                 <p className="text-gray-300 leading-7">
-                  Apply efficiently with tailored applications, clear tracking, and focus on opportunities where you can stand out. Keep your process organized and consistent.
+                  Apply with a focused and organized approach instead of mass applying everywhere. Use platforms like Unstop for hiring challenges and hackathons, and keep track of applications across LinkedIn, Internshala, and company career portals. Tailor your resume, portfolio, and cover letter for each opportunity to improve your chances of getting shortlisted.
                 </p>
-              </div>
-              <div className="bg-gray-800/70 p-6 rounded-3xl border border-gray-700">
+              </a>
+              <a href="#competitive-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-4 text-brand-green">
                   <FaTools size={28} />
                   <h3 className="text-2xl font-semibold">3. Build</h3>
                 </div>
                 <p className="text-gray-300 leading-7">
-                  Build proof-of-work through projects, contributions, and real learning experiences. Make your skills visible with tangible evidence of what you can do.
+                  Build real proof-of-work that strengthens your applications and helps you stand out. Practice coding and problem-solving on platforms like LeetCode, Codeforces, and GeeksforGeeks, while also contributing to projects through programs such as Google Summer of Code or the MLH Fellowship. Consistent hands-on learning demonstrates technical ability far better than certificates alone.
                 </p>
-              </div>
-              <div className="bg-gray-800/70 p-6 rounded-3xl border border-gray-700">
+              </a>
+              <a href="#open-source-programs" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
                 <div className="flex items-center gap-3 mb-4 text-brand-green">
                   <FaGithub size={28} />
                   <h3 className="text-2xl font-semibold">4. Showcase</h3>
                 </div>
                 <p className="text-gray-300 leading-7">
-                  Showcase your work on GitHub and apply through curated portals. Share your projects and use them to support stronger applications across programs.
+                  Showcase your skills, projects, achievements, and experiences in a professional way that recruiters can easily verify. Publish projects on GitHub, highlight hackathons and coding profiles, and use platforms like LinkedIn to share your work publicly. You can also leverage programs like AICTE Internship Portal, Generation India, or Amazon WoW to add credibility, mentorship, and industry-recognized experience to your profile.
                 </p>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -213,9 +213,16 @@ export default function FindOpportunitiesPage() {
           {opportunitySections.map((section) => (
             <div
               key={section.title}
+              id={
+                section.title === "Core Job and Internship Platforms"
+                  ? "core-platforms"
+                  : section.title === "Competitive/Merit Based Platforms"
+                  ? "competitive-platforms"
+                  : "open-source-programs"
+              }
               className="bg-gray-900/60 border border-gray-700 rounded-3xl p-8 shadow-2xl"
             >
-              <h2 className="text-3xl font-bold mb-10 text-brand-green">
+              <h2 className="scroll-mt-28 text-3xl font-bold mb-10 text-brand-green">
                 {section.title}
               </h2>
 
@@ -226,7 +233,7 @@ export default function FindOpportunitiesPage() {
                     className="bg-gray-800 rounded-2xl overflow-hidden hover:scale-[1.02] transition duration-300 shadow-lg"
                   >
                     {/* Thumbnail */}
-                    <div className="relative w-full h-48 md:h-56">
+                    <div className="relative w-full h-32 md:h-36">
                       <Image
                         src={item.image}
                         alt={item.name}
