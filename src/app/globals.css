@@ -3,6 +3,176 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
   height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Skill Building — keyframes ───────────────────────────────────── */
+
+@keyframes sb-float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(40px, -30px, 0) scale(1.06); }
+}
+
+@keyframes sb-float-medium {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(-30px, 40px, 0) scale(1.08); }
+}
+
+@keyframes sb-float-fast {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%      { transform: translate3d(20px, -20px, 0) rotate(8deg); }
+}
+
+@keyframes sb-grid-pan {
+  0%   { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+@keyframes sb-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes sb-pulse-ring {
+  0%   { transform: scale(0.95); opacity: 0.7; }
+  70%  { transform: scale(1.6);  opacity: 0; }
+  100% { transform: scale(1.6);  opacity: 0; }
+}
+
+@keyframes sb-ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes sb-stepper-draw {
+  0%   { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes sb-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.0); }
+  50%      { box-shadow: 0 0 40px 4px rgba(20, 184, 166, 0.25); }
+}
+
+@keyframes sb-chip-in {
+  0%   { opacity: 0; transform: translateY(8px) scale(0.92); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes sb-tool-in {
+  0%   { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Skill Building — utilities ───────────────────────────────────── */
+
+.sb-bg-grid {
+  background-image:
+    linear-gradient(rgba(20, 184, 166, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 184, 166, 0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: sb-grid-pan 22s linear infinite;
+}
+
+.sb-gradient-text {
+  background: linear-gradient(90deg, #14B8A6 0%, #A3E635 50%, #3B82F6 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  animation: sb-gradient-shift 6s ease-in-out infinite;
+}
+
+.sb-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.45;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.sb-float-slow   { animation: sb-float-slow   12s ease-in-out infinite; }
+.sb-float-medium { animation: sb-float-medium 9s  ease-in-out infinite; }
+.sb-float-fast   { animation: sb-float-fast   6s  ease-in-out infinite; }
+
+.sb-chip-in {
+  opacity: 0;
+  animation: sb-chip-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sb-tool-in {
+  opacity: 0;
+  animation: sb-tool-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sb-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.sb-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sb-tilt {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.sb-tilt:hover {
+  transform: perspective(900px) rotateX(3deg) rotateY(-3deg) translateY(-6px);
+}
+
+.sb-ticker-track {
+  animation: sb-ticker 30s linear infinite;
+}
+
+.sb-pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid rgba(20, 184, 166, 0.55);
+  animation: sb-pulse-ring 2.6s ease-out infinite;
+}
+
+.sb-stepper-bar {
+  transform-origin: left center;
+  animation: sb-stepper-draw 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.sb-glow-hover:hover {
+  animation: sb-glow 2.2s ease-in-out infinite;
+}
+
+/* Hide scrollbar on horizontal nav */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-float-slow,
+  .sb-float-medium,
+  .sb-float-fast,
+  .sb-bg-grid,
+  .sb-gradient-text,
+  .sb-ticker-track,
+  .sb-pulse-ring::after,
+  .sb-stepper-bar,
+  .sb-chip-in,
+  .sb-tool-in {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .sb-reveal { opacity: 1; transform: none; transition: none; }
 }
