@@ -141,19 +141,49 @@ export default async function FindOpportunitiesPage() {
 
   return (
     <main className="min-h-screen bg-brand-blue text-white scroll-smooth">
-      {/* Hero Section */}
-      <section className="py-20 text-center">
-        <div className="container mx-auto px-6">
-          <h1 className="text-5xl font-extrabold">
-            Discover Opportunities with Peer Insights
+      {/* Hero Section (SkillBuilding-inspired) */}
+      <section className="relative overflow-hidden bg-brand-blue py-28 text-center">
+        <div className="absolute inset-0 sb-bg-grid opacity-40" aria-hidden="true" />
+
+        <div className="relative container mx-auto px-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
+            Discover Opportunities with <span className="sb-gradient-text">Peer Insights</span>
           </h1>
 
-          <p className="mt-6 text-xl text-gray-300 max-w-3xl mx-auto">
-            Explore internships, fellowships, hackathons, and career platforms recommended by students 
-            who've successfully participated. Get insider tips on applications and what really works.
+          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+            Explore internships, fellowships, hackathons, and career platforms recommended by students
+            who&#39;ve successfully participated. Get insider tips on applications and what really works.
           </p>
+
+          <div className="mt-8 flex justify-center gap-5 flex-wrap">
+            <Link href="#core-platforms" className="inline-block bg-brand-green text-black px-6 py-3 rounded-lg font-semibold hover:opacity-95 transition">Start Searching</Link>
+            <Link href="#open-source-programs" className="inline-block border border-gray-600 text-gray-200 px-6 py-3 rounded-lg hover:bg-gray-800 transition">Explore Programs</Link>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-3 text-sm">
+            {['LinkedIn','Unstop','LeetCode','GitHub','GSoC','Internshala','Wellfound'].map((t, i) => (
+              <span key={t} className="sb-chip-in px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-blue-100 backdrop-blur-sm hover:bg-white/10 hover:border-brand-teal/50 hover:-translate-y-0.5 transition-all duration-300 cursor-default" style={{ animationDelay: `${i * 80}ms` }}>{t}</span>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Section nav (reference style) */}
+      <nav className="sticky top-0 z-40 bg-gray-950/95 backdrop-blur border-b border-gray-800 shadow-md" aria-label="Find opportunities sections">
+        <div className="container mx-auto px-6">
+          <ul className="flex items-center justify-center gap-4 overflow-x-auto scrollbar-none py-2" role="list">
+            <li className="flex-shrink-0">
+              <a href="#core-platforms" className="inline-block px-4 py-3 text-sm font-semibold text-gray-300 hover:text-white transition">Core Platforms</a>
+            </li>
+            <li className="flex-shrink-0">
+              <a href="#competitive-platforms" className="inline-block px-4 py-3 text-sm font-semibold text-gray-300 hover:text-white transition">Competitive</a>
+            </li>
+            <li className="flex-shrink-0">
+              <a href="#open-source-programs" className="inline-block px-4 py-3 text-sm font-semibold text-gray-300 hover:text-white transition">Open Source</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       {/* Playbook Section */}
       <section className="py-16">
@@ -171,43 +201,56 @@ export default async function FindOpportunitiesPage() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-8 lg:grid-cols-4">
-                <a href="#core-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
-                <div className="flex items-center gap-3 mb-4 text-brand-green">
-                  <FaSearch size={28} />
-                  <h3 className="text-2xl font-semibold">1. Search</h3>
-                </div>
-                <p className="text-gray-300 leading-7">
-                  Search strategically using trusted platforms that match your goals and skill level. Start with professional networks like LinkedIn and Wellfound for internships and startup opportunities, then explore curated student-focused portals such as Internshala, Cuvette, Instahyre, and Naukri Campus. Focus on quality over quantity by shortlisting roles that align with your interests, projects, and career path.
-                </p>
-              </a>
-              <a href="#core-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
-                <div className="flex items-center gap-3 mb-4 text-brand-green">
-                  <FaPaperPlane size={28} />
-                  <h3 className="text-2xl font-semibold">2. Apply</h3>
-                </div>
-                <p className="text-gray-300 leading-7">
-                  Apply with a focused and organized approach instead of mass applying everywhere. Use platforms like Unstop for hiring challenges and hackathons, and keep track of applications across LinkedIn, Internshala, and company career portals. Tailor your resume, portfolio, and cover letter for each opportunity to improve your chances of getting shortlisted.
-                </p>
-              </a>
-              <a href="#competitive-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
-                <div className="flex items-center gap-3 mb-4 text-brand-green">
-                  <FaTools size={28} />
-                  <h3 className="text-2xl font-semibold">3. Build</h3>
-                </div>
-                <p className="text-gray-300 leading-7">
-                  Build real proof-of-work that strengthens your applications and helps you stand out. Practice coding and problem-solving on platforms like LeetCode, Codeforces, and GeeksforGeeks, while also contributing to projects through programs such as Google Summer of Code or the MLH Fellowship. Consistent hands-on learning demonstrates technical ability far better than certificates alone.
-                </p>
-              </a>
-              <a href="#open-source-programs" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
-                <div className="flex items-center gap-3 mb-4 text-brand-green">
-                  <FaGithub size={28} />
-                  <h3 className="text-2xl font-semibold">4. Showcase</h3>
-                </div>
-                <p className="text-gray-300 leading-7">
-                  Showcase your skills, projects, achievements, and experiences in a professional way that recruiters can easily verify. Publish projects on GitHub, highlight hackathons and coding profiles, and use platforms like LinkedIn to share your work publicly. You can also leverage programs like AICTE Internship Portal, Generation India, or Amazon WoW to add credibility, mentorship, and industry-recognized experience to your profile.
-                </p>
-              </a>
+            <div className="mt-12">
+              <ul className="space-y-6">
+                <li className="flex gap-4">
+                  <div className="text-brand-green flex-shrink-0 mt-1">
+                    <FaSearch size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">1. Search</h3>
+                    <p className="text-gray-300 leading-7 mt-2">
+                      Search strategically using trusted platforms that match your goals and skill level. Start with professional networks like LinkedIn and Wellfound for internships and startup opportunities, then explore curated student-focused portals such as Internshala, Cuvette, Instahyre, and Naukri Campus. Focus on quality over quantity by shortlisting roles that align with your interests, projects, and career path.
+                    </p>
+                  </div>
+                </li>
+
+                <li className="flex gap-4">
+                  <div className="text-brand-green flex-shrink-0 mt-1">
+                    <FaPaperPlane size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">2. Apply</h3>
+                    <p className="text-gray-300 leading-7 mt-2">
+                      Apply with a focused and organized approach instead of mass applying everywhere. Use platforms like Unstop for hiring challenges and hackathons, and keep track of applications across LinkedIn, Internshala, and company career portals. Tailor your resume, portfolio, and cover letter for each opportunity to improve your chances of getting shortlisted.
+                    </p>
+                  </div>
+                </li>
+
+                <li className="flex gap-4">
+                  <div className="text-brand-green flex-shrink-0 mt-1">
+                    <FaTools size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">3. Build</h3>
+                    <p className="text-gray-300 leading-7 mt-2">
+                      Build real proof-of-work that strengthens your applications and helps you stand out. Practice coding and problem-solving on platforms like LeetCode, Codeforces, and GeeksforGeeks, while also contributing to projects through programs such as Google Summer of Code or the MLH Fellowship. Consistent hands-on learning demonstrates technical ability far better than certificates alone.
+                    </p>
+                  </div>
+                </li>
+
+                <li className="flex gap-4">
+                  <div className="text-brand-green flex-shrink-0 mt-1">
+                    <FaGithub size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">4. Showcase</h3>
+                    <p className="text-gray-300 leading-7 mt-2">
+                      Showcase your skills, projects, achievements, and experiences in a professional way that recruiters can easily verify. Publish projects on GitHub, highlight hackathons and coding profiles, and use platforms like LinkedIn to share your work publicly. You can also leverage programs like AICTE Internship Portal, Generation India, or Amazon WoW to add credibility, mentorship, and industry-recognized experience to your profile.
+                    </p>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -228,18 +271,18 @@ export default async function FindOpportunitiesPage() {
               }
               className="bg-gray-900/60 border border-gray-700 rounded-3xl p-8 shadow-2xl"
             >
-              <h2 className="scroll-mt-28 text-3xl font-bold mb-10 text-brand-green">
+              <h2 className="scroll-mt-16 text-3xl font-bold mb-10 text-brand-green">
                 {section.title}
               </h2>
 
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {section.items.map((item) => (
                   <div
                     key={item.name}
-                    className="bg-gray-800 rounded-2xl overflow-hidden hover:scale-[1.02] transition duration-300 shadow-lg"
+                    className="bg-gray-800 rounded-2xl border border-gray-700 hover:border-brand-teal overflow-hidden flex flex-col h-full"
                   >
                     {/* Thumbnail */}
-                    <div className="relative w-full h-32 md:h-36">
+                    <div className="relative w-full h-28 md:h-32 lg:h-36">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -250,8 +293,8 @@ export default async function FindOpportunitiesPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
-                      <h3 className="text-2xl font-bold mb-4">
+                    <div className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-2xl font-bold mb-3">
                         {item.name}
                       </h3>
 
@@ -259,13 +302,15 @@ export default async function FindOpportunitiesPage() {
                         {item.description}
                       </p>
 
-                      <Link
-                        href={item.url}
-                        target="_blank"
-                        className="inline-block bg-brand-green text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition"
-                      >
-                        Visit Platform
-                      </Link>
+                      <div className="mt-auto">
+                        <Link
+                          href={item.url}
+                          target="_blank"
+                          className="inline-block bg-brand-green text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition"
+                        >
+                          Visit Platform
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 ))}

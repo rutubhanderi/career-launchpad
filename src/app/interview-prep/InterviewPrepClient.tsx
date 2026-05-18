@@ -303,7 +303,7 @@ const SectionNav = () => {
       aria-label="Page sections"
     >
       <div className="container mx-auto px-6">
-        <ul className="flex items-center gap-1 overflow-x-auto scrollbar-none py-0" role="list">
+        <ul className="flex items-center justify-center gap-1 overflow-x-auto scrollbar-none py-0" role="list">
           {NAV_LINKS.map(({ label, href }) => {
             const isActive = active === href.replace("#", "");
             return (

@@ -374,7 +374,7 @@ const SectionNav = () => {
       aria-label="Skill building sections"
     >
       <div className="container mx-auto px-6">
-        <ul className="flex items-center gap-1 overflow-x-auto scrollbar-none py-0" role="list">
+        <ul className="flex items-center justify-center gap-1 overflow-x-auto scrollbar-none py-0" role="list">
           {NAV_LINKS.map(({ label, href }) => {
             const isActive = active === href.replace("#", "");
             return (
@@ -718,7 +718,7 @@ export default function SkillBuildingClient() {
       </section>
 
       {/* ─── Roadmap ──────────────────────────────────────────────────── */}
-      <section id="roadmap" className="py-24 bg-gray-900/60 scroll-mt-16">
+      <section id="roadmap" className="py-0 bg-gray-900/60 scroll-mt-16">
         <div className="container mx-auto px-6">
           <div ref={journeyRef} className="sb-reveal text-center mb-16">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-teal mb-4">
@@ -778,7 +778,7 @@ export default function SkillBuildingClient() {
       </section>
 
       {/* ─── Courses & Certifications ────────────────────────────────── */}
-      <section id="courses" className="py-24 bg-gray-900/60 scroll-mt-16">
+      <section id="courses" className="py-0 bg-gray-900/60 scroll-mt-16">
         <div className="container mx-auto px-6">
           <div ref={coursesRef} className="sb-reveal text-center mb-16 max-w-3xl mx-auto">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-green mb-4">
@@ -854,13 +854,10 @@ export default function SkillBuildingClient() {
       {/* Footer breadcrumb / final */}
       <section className="pb-24">
         <div className="container mx-auto px-6">
-          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-500">
-            <FaGraduationCap className="text-brand-teal" />
-            <span>Career Launchpad · Skill Building</span>
+          <div className="flex flex-wrap items-center justify-center gap-3 text-md text-gray-500">
             <span className="opacity-50">·</span>
-            <a href="#foundation" className="hover:text-brand-teal transition-colors">Back to top</a>
+            <a href="#foundation" className="hover:text-brand-teal transition-colors">Back to Top</a>
             <span className="opacity-50">·</span>
-            <span><FaLaptopCode className="inline mr-1.5" />Built for learners</span>
           </div>
         </div>
       </section>

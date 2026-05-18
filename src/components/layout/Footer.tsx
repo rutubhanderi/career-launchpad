@@ -59,12 +59,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500">
-            &copy; {new Date().getFullYear()} Career Launchpad. All rights reserved.
-          </p>
-          <p className="text-gray-500 mt-2 md:mt-0">Built to help you launch your next interview.</p>
-        </div>
       </div>
     </footer>
   );
