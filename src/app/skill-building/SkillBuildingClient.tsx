@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  FaArrowRight,
   FaBookOpen,
   FaBrain,
   FaChalkboardTeacher,
@@ -81,7 +80,7 @@ const pillars: Pillar[] = [
     accent: "text-brand-teal",
     bgAccent: "bg-brand-teal",
     intro:
-      "Strong foundations beat shiny tools. Become fluent in 1–2 languages, master DS/Algos, and stay consistent.",
+      "The non-negotiable base. Fluency in 1–2 languages, comfort with data structures and algorithms, and a daily reps habit that compounds over a semester.",
     bullets: [
       {
         text: "Focus on fundamentals: data structures, algorithms & complexity (Big-O).",
@@ -122,7 +121,7 @@ const pillars: Pillar[] = [
     accent: "text-brand-light-blue",
     bgAccent: "bg-brand-light-blue",
     intro:
-      "What separates students from engineers — versioning, testing, packaging, deployment, secure coding.",
+      "The workflow real teams use. Version control, automated tests, secure coding habits, and the build & deploy basics that take your code off your laptop.",
     bullets: [
       {
         text: "Version control basics: clone, commit, branch, merge, pull requests.",
@@ -156,7 +155,7 @@ const pillars: Pillar[] = [
     accent: "text-brand-green",
     bgAccent: "bg-brand-green",
     intro:
-      "Theory without shipping is forgotten. Build, deploy, contribute — let your work speak for you.",
+      "Where learning becomes a portfolio. Ship 3–5 real projects, contribute to open source, and compete in hackathons — each one is a story you can tell in an interview.",
     bullets: [
       {
         text: "Project-based learning: build 3–5 portfolio projects (small → medium → end-to-end).",
@@ -462,8 +461,8 @@ const ParallaxHero = () => {
           <span className="sb-gradient-text">Foundation, Tools & Growth</span>
         </h1>
         <p className="mt-6 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
-          A focused path from fundamentals to shipped projects. Learn what to study, the tools that
-          matter, and the platforms that turn study time into real opportunities.
+          A clear curriculum from CS fundamentals to shipped, recruiter-ready work — exactly what to
+          study, the tools to know, and where to apply them.
         </p>
         <div className="mt-10 flex justify-center gap-5 flex-wrap">
           <Button href="#foundation" variant="cta">
@@ -693,27 +692,6 @@ export default function SkillBuildingClient() {
 
       <SectionNav />
 
-      {/* Tagline bar */}
-      <div className="bg-gray-900 py-5 px-6 border-b border-gray-800">
-        <div className="container mx-auto flex items-center justify-center gap-3 flex-wrap text-sm font-semibold text-brand-teal">
-          {[
-            "Learn fundamentals",
-            "Pick your language",
-            "Build real projects",
-            "Ship & showcase",
-          ].map((t, i, arr) => (
-            <span key={i} className="flex items-center gap-3">
-              <span className="bg-brand-teal/10 border border-brand-teal/30 rounded-full px-5 py-1.5 text-brand-teal">
-                {t}
-              </span>
-              {i < arr.length - 1 && (
-                <FaArrowRight className="text-gray-600 flex-shrink-0" size={12} />
-              )}
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* ─── Foundation ──────────────────────────────────────────────── */}
       <section id="foundation" className="py-24 scroll-mt-16 relative overflow-hidden">
         <div className="absolute inset-0 sb-bg-grid opacity-20 pointer-events-none" aria-hidden="true" />
@@ -726,8 +704,8 @@ export default function SkillBuildingClient() {
               Learning & <span className="sb-gradient-text">Applying</span>
             </h2>
             <p className="text-gray-400 text-lg">
-              Three pillars that take you from theory to a portfolio recruiters can verify.
-              Every link is free and battle-tested.
+              Three pillars that turn syllabus knowledge into work a recruiter can actually
+              click on. Every linked resource is free.
             </p>
           </div>
 
@@ -747,7 +725,9 @@ export default function SkillBuildingClient() {
               Roadmap
             </p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Skill-Building Journey</h2>
-            <p className="text-gray-400 text-lg">Follow the sequence — each stage compounds.</p>
+            <p className="text-gray-400 text-lg">
+              Five stages, in order. Don&apos;t skip ahead — each stage makes the next one shorter.
+            </p>
           </div>
           <div className="max-w-5xl mx-auto">
             <Roadmap />
@@ -784,7 +764,8 @@ export default function SkillBuildingClient() {
               Where to <span className="sb-gradient-text">Specialize</span> Next
             </h2>
             <p className="text-gray-400 text-lg">
-              After the foundation, branch into a focus area. Pick one — go deep — then add another.
+              Once the foundation is solid, depth in one area beats shallow in many. Pick a track
+              that matches the roles you&apos;re targeting and go deep before adding another.
             </p>
           </div>
 
@@ -807,7 +788,8 @@ export default function SkillBuildingClient() {
               Trusted Platforms to <span className="sb-gradient-text">Learn From</span>
             </h2>
             <p className="text-gray-400 text-lg">
-              Free and paid — university-grade and practical. Pick what fits your learning style.
+              University-grade lectures, hands-on bootcamps, vendor certifications — all in one
+              place. Pick the format that matches how you actually learn.
             </p>
           </div>
 
@@ -836,8 +818,8 @@ export default function SkillBuildingClient() {
                 Pick <span className="sb-gradient-text">one skill</span> this week.
               </h2>
               <p className="mt-5 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
-                The hardest part is starting. Commit to 30 minutes today, push one commit, and let
-                compounding do the rest.
+                Don&apos;t try to learn everything at once. Pick one topic from above, block 30 minutes
+                today, push one commit, and repeat tomorrow. That&apos;s how this works.
               </p>
               <div className="mt-10 flex justify-center gap-4 flex-wrap">
                 <Button href="/find-opportunities" variant="cta" showArrow>
