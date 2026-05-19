@@ -5,9 +5,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
-const DEMO_EMAIL = "demo@careerlaunchpad.local";
-const DEMO_PASSWORD = "Password123!";
-
 export default function LoginClient({
   variant = "page",
   onAuthSuccess,
@@ -21,8 +18,8 @@ export default function LoginClient({
   const hadNext = Boolean(nextParam);
   const nextPath = nextParam || "/";
 
-  const [email, setEmail] = useState(DEMO_EMAIL);
-  const [password, setPassword] = useState(DEMO_PASSWORD);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -39,7 +36,7 @@ export default function LoginClient({
       });
 
       const data = (await res.json().catch(() => null)) as
-        | { ok?: boolean; message?: string }
+        | { ok?: boolean; message?: string; sessionCreated?: boolean }
         | null;
 
       if (!res.ok) {
@@ -87,9 +84,7 @@ export default function LoginClient({
       ].join(" ")}
     >
         <h1 className="text-3xl font-extrabold">Log in</h1>
-        <p className="mt-2 text-gray-400">
-          Demo-only login. Use the prefilled credentials.
-        </p>
+        <p className="mt-2 text-gray-400">Log in with your Supabase account.</p>
 
         {error && (
           <div className="mt-4 rounded-lg border border-red-400/40 bg-red-500/10 p-3 text-red-200">
@@ -131,16 +126,6 @@ export default function LoginClient({
             </button>
           </div>
 
-          <div className="pt-4 border-t border-gray-700 text-sm text-gray-400">
-            <div className="flex items-center justify-between">
-              <span>Demo email:</span>
-              <code className="text-gray-200">{DEMO_EMAIL}</code>
-            </div>
-            <div className="flex items-center justify-between mt-1">
-              <span>Demo password:</span>
-              <code className="text-gray-200">{DEMO_PASSWORD}</code>
-            </div>
-          </div>
         </form>
 
         <div className="mt-4">

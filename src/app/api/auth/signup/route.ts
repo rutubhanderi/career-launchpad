@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { AUTH_COOKIE_NAME, DEMO_USER } from "@/lib/auth";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export async function POST(req: Request) {
   const body = (await req.json().catch(() => null)) as
@@ -9,25 +9,29 @@ export async function POST(req: Request) {
   const email = (body?.email ?? "").trim().toLowerCase();
   const password = body?.password ?? "";
 
-  // Demo-only: "signup" is only enabled for the hardcoded demo user.
-  if (email !== DEMO_USER.email || password !== DEMO_USER.password) {
+  const supabase = await createSupabaseServerClient();
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+  });
+
+  if (error || !data.user) {
     return NextResponse.json(
       {
         ok: false,
-        message:
-          "Signup is disabled in demo mode. Use the demo credentials shown on the page.",
+        message: error?.message || "Signup failed.",
       },
       { status: 400 },
     );
   }
 
-  const res = NextResponse.json({ ok: true });
-  res.cookies.set({
-    name: AUTH_COOKIE_NAME,
-    value: "1",
-    httpOnly: true,
-    sameSite: "lax",
-    path: "/",
+  return NextResponse.json({
+    ok: true,
+    email: data.user.email,
+    sessionCreated: Boolean(data.session),
+    requiresConfirmation: !data.session,
+    message: data.session
+      ? "Account created and signed in."
+      : "Check your email to confirm your account, then log in.",
   });
-  return res;
 }

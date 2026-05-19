@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
-import { isAuthenticated, getDemoEmail } from "@/lib/auth";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export async function GET() {
-  const authed = await isAuthenticated();
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase.auth.getUser();
+  const authed = Boolean(data.user);
   return NextResponse.json({
     authenticated: authed,
-    email: authed ? getDemoEmail() : null,
+    email: authed ? data.user?.email ?? null : null,
   });
 }

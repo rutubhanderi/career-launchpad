@@ -5,9 +5,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
-const DEMO_EMAIL = "demo@careerlaunchpad.local";
-const DEMO_PASSWORD = "Password123!";
-
 export default function SignupClient({
   variant = "page",
   onAuthSuccess,
@@ -21,8 +18,8 @@ export default function SignupClient({
   const hadNext = Boolean(nextParam);
   const nextPath = nextParam || "/";
 
-  const [email, setEmail] = useState(DEMO_EMAIL);
-  const [password, setPassword] = useState(DEMO_PASSWORD);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -39,11 +36,21 @@ export default function SignupClient({
       });
 
       const data = (await res.json().catch(() => null)) as
-        | { ok?: boolean; message?: string }
+        | {
+            ok?: boolean;
+            message?: string;
+            sessionCreated?: boolean;
+            requiresConfirmation?: boolean;
+          }
         | null;
 
       if (!res.ok) {
         setError(data?.message || "Signup failed.");
+        return;
+      }
+
+      if (data?.requiresConfirmation && !data?.sessionCreated) {
+        setError(data?.message || "Check your email to confirm your account.");
         return;
       }
 
@@ -88,7 +95,7 @@ export default function SignupClient({
     >
         <h1 className="text-3xl font-extrabold">Sign up</h1>
         <p className="mt-2 text-gray-400">
-          Demo-only signup (hardcoded credentials).
+          Create a Supabase account to start using Career Launchpad.
         </p>
 
         {error && (
@@ -138,16 +145,6 @@ export default function SignupClient({
             </Link>
           </div>
 
-          <div className="pt-4 border-t border-gray-700 text-sm text-gray-400">
-            <div className="flex items-center justify-between">
-              <span>Demo email:</span>
-              <code className="text-gray-200">{DEMO_EMAIL}</code>
-            </div>
-            <div className="flex items-center justify-between mt-1">
-              <span>Demo password:</span>
-              <code className="text-gray-200">{DEMO_PASSWORD}</code>
-            </div>
-          </div>
         </form>
 
         {variant === "page" && (

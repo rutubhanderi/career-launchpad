@@ -1,5 +1,16 @@
 # Career Launchpad
 
+## Supabase Auth
+
+This app now uses Supabase for login and signup. Create a `.env.local` file in the project root with these values:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-supabase-publishable-key
+```
+
+If you are still using the legacy anon key, `NEXT_PUBLIC_SUPABASE_ANON_KEY` also works.
+
 ## Getting Started
 
 First, run the development server:

@@ -1,6 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-
-const AUTH_COOKIE_NAME = "cl_session";
+import { updateSession } from "@/lib/supabase/middleware";
 
 function isPublicPath(pathname: string): boolean {
   if (pathname === "/") return true;
@@ -10,16 +9,16 @@ function isPublicPath(pathname: string): boolean {
   return false;
 }
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const { response, user } = await updateSession(req);
 
   if (isPublicPath(pathname)) {
-    return NextResponse.next();
+    return response;
   }
 
-  const session = req.cookies.get(AUTH_COOKIE_NAME)?.value;
-  if (session === "1") {
-    return NextResponse.next();
+  if (user) {
+    return response;
   }
 
   const url = req.nextUrl.clone();
