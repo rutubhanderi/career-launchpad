@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaSearch, FaPaperPlane, FaTools, FaGithub } from "react-icons/fa";
+import { redirect } from "next/navigation";
+import { FaSearch, FaPaperPlane, FaTools, FaGithub, FaArrowRight } from "react-icons/fa";
+import { isAuthenticated } from "@/lib/auth";
 
 const opportunitySections = [
   {
@@ -44,7 +46,7 @@ const opportunitySections = [
       {
         name: "Naukri Campus",
         url: "https://www.naukri.com/campus",
-        image: "/images/platforms/naukri.jpeg",
+        image: "/images/platforms/naukri.png",
         description:
           "Naukri Campus is designed for students and fresh graduates scanning entry-level roles and off-campus drives. It includes aptitude tests, hiring assessments, and direct applications to companies.",
       },
@@ -132,7 +134,11 @@ const opportunitySections = [
   },
 ];
 
-export default function FindOpportunitiesPage() {
+export default async function FindOpportunitiesPage() {
+  if (!(await isAuthenticated())) {
+    redirect("/login?next=/find-opportunities");
+  }
+
   return (
     <main className="min-h-screen bg-brand-blue text-white scroll-smooth">
       {/* Hero Section */}
@@ -160,47 +166,66 @@ export default function FindOpportunitiesPage() {
               <h2 className="text-4xl font-bold mt-4">
                 A practical playbook for finding the right opportunities
               </h2>
-              <p className="mt-4 text-gray-300 text-lg">
-                Follow these steps to discover, evaluate, and apply to meaningful internships, fellowships, and programs with confidence.
-              </p>
+              <div className="mt-4 text-gray-300 text-lg">
+                <p>
+                  Follow these steps to discover, evaluate, and apply to meaningful internships, fellowships, and programs with confidence.
+                </p>
+              </div>
             </div>
 
-            <div className="mt-12 grid gap-8 lg:grid-cols-4">
-                <a href="#core-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
+            <div className="mt-12 space-y-8 lg:flex lg:items-center lg:justify-between lg:space-y-0 lg:gap-6">
+              <a href="#core-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all lg:flex-1">
                 <div className="flex items-center gap-3 mb-4 text-brand-green">
                   <FaSearch size={28} />
-                  <h3 className="text-2xl font-semibold">1. Search</h3>
+                  <h3 className="text-xl md:text-2xl font-semibold whitespace-nowrap">1. Search</h3>
                 </div>
-                <p className="text-gray-300 leading-7">
-                  Search strategically using trusted platforms that match your goals and skill level. Start with professional networks like LinkedIn and Wellfound for internships and startup opportunities, then explore curated student-focused portals such as Internshala, Cuvette, Instahyre, and Naukri Campus. Focus on quality over quantity by shortlisting roles that align with your interests, projects, and career path.
-                </p>
+                <ul className="list-disc list-inside space-y-2 text-gray-300 leading-7">
+                  <li>Use trusted platforms like LinkedIn and Wellfound.</li>
+                  <li>Explore student-focused portals such as Internshala and Cuvette.</li>
+                  <li>Shortlist roles that match your goals and skill level.</li>
+                </ul>
               </a>
-              <a href="#core-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
+              <div className="hidden lg:flex items-center justify-center flex-none text-brand-green">
+                <FaArrowRight size={20} />
+              </div>
+              <a href="#core-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all lg:flex-1">
                 <div className="flex items-center gap-3 mb-4 text-brand-green">
                   <FaPaperPlane size={28} />
-                  <h3 className="text-2xl font-semibold">2. Apply</h3>
+                  <h3 className="text-xl md:text-2xl font-semibold whitespace-nowrap">2. Apply</h3>
                 </div>
-                <p className="text-gray-300 leading-7">
-                  Apply with a focused and organized approach instead of mass applying everywhere. Use platforms like Unstop for hiring challenges and hackathons, and keep track of applications across LinkedIn, Internshala, and company career portals. Tailor your resume, portfolio, and cover letter for each opportunity to improve your chances of getting shortlisted.
-                </p>
+                <ul className="list-disc list-inside space-y-2 text-gray-300 leading-7">
+                  <li>Apply selectively with a focused, organized plan.</li>
+                  <li>Track applications across platforms and company portals.</li>
+                  <li>Tailor resumes, portfolios, and cover letters per role.</li>
+                </ul>
               </a>
-              <a href="#competitive-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
+              <div className="hidden lg:flex items-center justify-center flex-none text-brand-green">
+                <FaArrowRight size={20} />
+              </div>
+              <a href="#competitive-platforms" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all lg:flex-1">
                 <div className="flex items-center gap-3 mb-4 text-brand-green">
                   <FaTools size={28} />
-                  <h3 className="text-2xl font-semibold">3. Build</h3>
+                  <h3 className="text-xl md:text-2xl font-semibold whitespace-nowrap">3. Build</h3>
                 </div>
-                <p className="text-gray-300 leading-7">
-                  Build real proof-of-work that strengthens your applications and helps you stand out. Practice coding and problem-solving on platforms like LeetCode, Codeforces, and GeeksforGeeks, while also contributing to projects through programs such as Google Summer of Code or the MLH Fellowship. Consistent hands-on learning demonstrates technical ability far better than certificates alone.
-                </p>
+                <ul className="list-disc list-inside space-y-2 text-gray-300 leading-7">
+                  <li>Build real projects and contributions to showcase skills.</li>
+                  <li>Practice problem-solving on LeetCode, Codeforces, and GFG.</li>
+                  <li>Join open-source programs like GSoC or MLH Fellowship.</li>
+                </ul>
               </a>
-              <a href="#open-source-programs" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all">
+              <div className="hidden lg:flex items-center justify-center flex-none text-brand-green">
+                <FaArrowRight size={20} />
+              </div>
+              <a href="#open-source-programs" className="group block bg-gray-800/70 p-6 rounded-3xl border border-gray-700 hover:shadow-xl transition-all lg:flex-1">
                 <div className="flex items-center gap-3 mb-4 text-brand-green">
                   <FaGithub size={28} />
-                  <h3 className="text-2xl font-semibold">4. Showcase</h3>
+                  <h3 className="text-xl md:text-2xl font-semibold whitespace-nowrap">4. Showcase</h3>
                 </div>
-                <p className="text-gray-300 leading-7">
-                  Showcase your skills, projects, achievements, and experiences in a professional way that recruiters can easily verify. Publish projects on GitHub, highlight hackathons and coding profiles, and use platforms like LinkedIn to share your work publicly. You can also leverage programs like AICTE Internship Portal, Generation India, or Amazon WoW to add credibility, mentorship, and industry-recognized experience to your profile.
-                </p>
+                <ul className="list-disc list-inside space-y-2 text-gray-300 leading-7">
+                  <li>Showcase projects and achievements clearly for recruiters.</li>
+                  <li>Publish work on GitHub and highlight hackathon experience.</li>
+                  <li>Use LinkedIn and recognized programs to add credibility.</li>
+                </ul>
               </a>
             </div>
           </div>
@@ -233,13 +258,13 @@ export default function FindOpportunitiesPage() {
                     className="bg-gray-800 rounded-2xl overflow-hidden hover:scale-[1.02] transition duration-300 shadow-lg"
                   >
                     {/* Thumbnail */}
-                    <div className="relative w-full h-32 md:h-36">
+                    <div className="relative w-full h-28 md:h-32 bg-gray-800 overflow-hidden rounded-t-2xl">
                       <Image
                         src={item.image}
                         alt={item.name}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover object-center"
+                        className="object-contain object-center"
                       />
                     </div>
 
