@@ -7,13 +7,17 @@ import {
   FaAward,
   FaProjectDiagram,
   FaSearch,
+  FaUsers,
+  FaRocket,
+  FaEye,
+  FaHandshake,
 } from "react-icons/fa";
 
 export default async function HomePage() {
   const authed = await isAuthenticated();
 
   return (
-    <>
+    <main className="min-h-screen bg-brand-blue text-white scroll-smooth">
       {/* Hero Section */}
       <section className="bg-hero-gradient pt-20 pb-16">
         <div className="container mx-auto px-6 text-center">
@@ -139,6 +143,76 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-    </>
+
+      {/* Mission & Vision */}
+      <section className="py-20">
+        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl font-bold text-brand-teal mb-4">Our Mission</h2>
+            <p className="text-gray-300 mb-8 text-lg">
+              To create a supportive ecosystem where experienced students guide beginners and job-seekers through their career journeys.
+              We believe that the best career advice comes from those who have recently faced the same challenges and overcome them,
+              providing authentic, relatable guidance that traditional career services cannot match.
+            </p>
+            <h2 className="text-3xl font-bold text-brand-teal mb-4">Our Vision</h2>
+            <p className="text-gray-300 text-lg">
+              A world where every student has access to personalized career guidance from peers who understand their unique challenges.
+              We envision a future where Career Launchpad becomes the go-to resource for students worldwide,
+              breaking down barriers and democratizing access to meaningful career opportunities.
+            </p>
+          </div>
+          <div>
+            <Image
+              src="/images/platforms/studentcollaboration.jpeg"
+              alt="Students collaborating and learning together"
+              width={600}
+              height={400}
+              className="rounded-lg shadow-xl"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* What Drives Us */}
+      <section className="py-20 bg-gray-900/50">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">What Drives Us</h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-12">
+            Our platform is built on the principle that everyone deserves a fair shot at career success,
+            regardless of their background or resources.
+          </p>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <FaUsers size={40} className="mx-auto text-brand-green mb-4" />
+              <h3 className="text-xl font-bold mb-2">Community First</h3>
+              <p className="text-gray-400">
+                We prioritize building genuine connections between mentors and mentees within our student community.
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <FaRocket size={40} className="mx-auto text-brand-green mb-4" />
+              <h3 className="text-xl font-bold mb-2">Actionable Insights</h3>
+              <p className="text-gray-400">
+                Every piece of advice is backed by real experiences and proven results from our community members.
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <FaEye size={40} className="mx-auto text-brand-green mb-4" />
+              <h3 className="text-xl font-bold mb-2">Transparency</h3>
+              <p className="text-gray-400">
+                We believe in open sharing of experiences, challenges, and strategies to help everyone succeed.
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <FaHandshake size={40} className="mx-auto text-brand-green mb-4" />
+              <h3 className="text-xl font-bold mb-2">Mutual Growth</h3>
+              <p className="text-gray-400">
+                As mentors share their knowledge, they continue to grow and develop their leadership skills.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

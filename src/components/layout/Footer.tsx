@@ -24,12 +24,7 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link href="/about" className="text-gray-400 transition hover:text-white">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 transition hover:text-white">
+                <Link href="/skill-building" className="text-gray-400 transition hover:text-white">
                   Skill Building
                 </Link>
               </li>

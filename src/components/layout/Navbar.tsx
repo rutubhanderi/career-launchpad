@@ -63,7 +63,6 @@ const Navbar = () => {
 
   const navLinks = useMemo(
     () => [
-      { name: "About", href: "/about" },
       { name: "Skill Building", href: "/skill-building" },
       { name: "Find Opportunities", href: "/find-opportunities" },
       { name: "Interview Prep", href: "/interview-prep" },

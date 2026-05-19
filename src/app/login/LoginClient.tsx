@@ -19,7 +19,7 @@ export default function LoginClient({
   const searchParams = useSearchParams();
   const nextParam = useMemo(() => searchParams.get("next"), [searchParams]);
   const hadNext = Boolean(nextParam);
-  const nextPath = nextParam || "/about";
+  const nextPath = nextParam || "/";
 
   const [email, setEmail] = useState(DEMO_EMAIL);
   const [password, setPassword] = useState(DEMO_PASSWORD);
@@ -47,7 +47,7 @@ export default function LoginClient({
         return;
       }
 
-      const safeNextPath = nextPath.startsWith("/") ? nextPath : "/about";
+      const safeNextPath = nextPath.startsWith("/") ? nextPath : "/";
 
       if (variant === "modal") {
         if (onAuthSuccess) {
